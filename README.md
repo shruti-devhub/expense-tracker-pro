@@ -3,6 +3,9 @@
 
 A modern dark-themed personal expense tracker built with Python, Tkinter, SQLite, and Streamlit.
 
+### 🌐 Live Website
+**[Click here to see Live Demo -> https://expense-tracker-dark-pro.streamlit.app/](https://expense-tracker-dark-pro.streamlit.app/)**
+
 ### ✨ Features
 - Dark Pro UI inspired by CRED/PhonePe
 - Category-wise dashboard (Food, Shopping, Travel)
@@ -10,6 +13,6 @@ A modern dark-themed personal expense tracker built with Python, Tkinter, SQLite
 - SQLite database + CSV Export
 - Converts to .EXE and Web App
 
-### 🖥️ Desktop App
+### 🖥️ How to Run Desktop App
 ```bash
 python main.py
