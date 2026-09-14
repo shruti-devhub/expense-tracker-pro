@@ -56,7 +56,14 @@ with st.form("add_form"):
         con.execute("INSERT INTO expenses (date, category, amount, note) VALUES (?,?,?,?)", (date, category, amount, note))
         con.commit(); con.close()
         st.success("Added!"); st.rerun()
-
+# --- NEW USER KE LIYE 0 SE START KARNE KA BUTTON ---
+if st.button("🗑️ Clear All & Start from 0"):
+    con = sqlite3.connect(DB_NAME)
+    con.execute("DELETE FROM expenses")
+    con.commit()
+    con.close()
+    st.success("Sab clear! Ab new user 0 se start kar sakta hai")
+    st.rerun()
 # Table
 st.subheader("Recent Transactions")
 if not df.empty:
@@ -64,4 +71,4 @@ if not df.empty:
     csv = df.to_csv(index=False).encode('utf-8')
     st.download_button("Download CSV", csv, "expenses.csv", "text/csv")
 else:
-    st.info("Abhi koi kharcha nahi hai, upar se add karo.")
+    st.info("There is no any kharcha", add from top.")
