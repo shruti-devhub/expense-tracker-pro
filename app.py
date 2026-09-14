@@ -24,7 +24,7 @@ conn.execute('''CREATE TABLE IF NOT EXISTS expenses
 conn.commit(); conn.close()
 
 st.title("💰 EXPENSE TRACKER - Dark Pro")
-st.caption("SHRUTI MISHRA • NIELIT LKO • S GRADE • Reg: NIELIT/LKO/IC/Q11/39701")
+st.caption("SHRUTI MISHRA")
 
 # Fetch Data
 con = sqlite3.connect(DB_NAME)
@@ -71,4 +71,4 @@ if not df.empty:
     csv = df.to_csv(index=False).encode('utf-8')
     st.download_button("Download CSV", csv, "expenses.csv", "text/csv")
 else:
-    st.info("There is no any kharcha", add from top.")
+    st.info("There is no any kharcha, add from top.")
