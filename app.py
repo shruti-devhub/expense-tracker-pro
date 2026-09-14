@@ -1,5 +1,6 @@
 # app.py - Website Version - Shruti Mishra
 import streamlit as st
+import plotly.express as px
 import sqlite3
 import pandas as pd
 from datetime import datetime
@@ -24,7 +25,7 @@ conn.execute('''CREATE TABLE IF NOT EXISTS expenses
 conn.commit(); conn.close()
 
 st.title("💰 EXPENSE TRACKER - Dark Pro")
-st.caption("SHRUTI MISHRA")
+st.caption("Develop by-SHRUTI MISHRA")
 
 # Fetch Data
 con = sqlite3.connect(DB_NAME)
@@ -65,6 +66,15 @@ if st.button("🗑️ Clear All & Start from 0"):
     st.success("Sab clear! Ab new user 0 se start kar sakta hai")
     st.rerun()
 # Table
+# --- CHART SECTION ---
+st.subheader("📊 Spending Analysis")
+c1, c2 = st.columns(2)
+with c1:
+    fig = px.pie(df, names='category', values='amount', title='Category Wise')
+    st.plotly_chart(fig, use_container_width=True)
+with c2:
+    fig2 = px.bar(df, x='category', y='amount', color='category', title='Amount by Category')
+    st.plotly_chart(fig2, use_container_width=True)
 st.subheader("Recent Transactions")
 if not df.empty:
     st.dataframe(df, use_container_width=True, hide_index=True)
